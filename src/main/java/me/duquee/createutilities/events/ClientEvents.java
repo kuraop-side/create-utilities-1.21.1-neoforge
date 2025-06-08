@@ -3,7 +3,7 @@ package me.duquee.createutilities.events;
 import me.duquee.createutilities.voidlink.VoidLinkRenderer;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
-import net.neoforged.event.TickEvent;
+import net.neoforged.neoforge.event.TickEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 

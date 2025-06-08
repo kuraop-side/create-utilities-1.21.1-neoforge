@@ -7,7 +7,7 @@ import me.duquee.createutilities.blocks.voidtypes.tank.VoidTanksData;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.storage.DimensionDataStorage;
-import net.neoforged.event.level.LevelEvent;
+import net.neoforged.neoforge.event.level.LevelEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 

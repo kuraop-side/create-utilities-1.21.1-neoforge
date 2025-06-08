@@ -7,10 +7,10 @@ import me.duquee.createutilities.networking.packets.VoidBatteryUpdatePacket;
 import me.duquee.createutilities.networking.packets.VoidTankUpdatePacket;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.network.NetworkDirection;
-import net.neoforged.network.NetworkEvent;
-import net.neoforged.network.NetworkRegistry;
-import net.neoforged.network.simple.SimpleChannel;
+import net.neoforged.neoforge.network.NetworkDirection;
+import net.neoforged.neoforge.network.NetworkEvent;
+import net.neoforged.neoforge.network.NetworkRegistry;
+import net.neoforged.neoforge.network.simple.SimpleChannel;
 
 import java.util.function.BiConsumer;
 import java.util.function.Function;

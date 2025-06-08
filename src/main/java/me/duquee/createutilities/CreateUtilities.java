@@ -19,7 +19,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.fml.ModLoadingContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,7 +44,7 @@ public class CreateUtilities {
 
 	public static void onCtor() {
 
-		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+               IEventBus modEventBus = ModLoadingContext.get().getActiveContainer().getEventBus();
 		IEventBus gameEventBus = NeoForge.EVENT_BUS;
 
 		REGISTRATE.registerEventListeners(modEventBus);

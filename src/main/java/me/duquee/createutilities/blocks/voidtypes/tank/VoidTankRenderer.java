@@ -10,7 +10,7 @@ import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
-import net.neoforged.fluids.capability.templates.FluidTank;
+import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 public class VoidTankRenderer extends SafeBlockEntityRenderer<VoidTankTileEntity> implements VoidTileRenderer<VoidTankTileEntity> {
 

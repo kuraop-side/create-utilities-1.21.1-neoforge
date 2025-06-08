@@ -8,7 +8,7 @@ import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.
 import net.minecraft.network.FriendlyByteBuf;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.loading.FMLEnvironment;
-import net.neoforged.network.NetworkEvent;
+import net.neoforged.neoforge.network.NetworkEvent;
 
 public class VoidBatteryUpdatePacket extends SimplePacketBase {
 

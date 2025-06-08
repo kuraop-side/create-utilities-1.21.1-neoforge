@@ -8,9 +8,9 @@ import me.duquee.createutilities.blocks.voidtypes.tank.VoidTank;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.neoforged.api.distmarker.Dist;
-import net.neoforged.fluids.capability.templates.FluidTank;
+import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import net.neoforged.fml.loading.FMLEnvironment;
-import net.neoforged.network.NetworkEvent;
+import net.neoforged.neoforge.network.NetworkEvent;
 
 public class VoidTankUpdatePacket extends SimplePacketBase {
 
