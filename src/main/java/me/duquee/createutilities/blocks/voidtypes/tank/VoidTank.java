@@ -5,8 +5,8 @@ import me.duquee.createutilities.CreateUtilities;
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.NetworkKey;
 import me.duquee.createutilities.networking.CUPackets;
 import me.duquee.createutilities.networking.packets.VoidTankUpdatePacket;
-import net.neoforged.fluids.capability.templates.FluidTank;
-import net.neoforged.network.PacketDistributor;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.minecraftforge.network.PacketDistributor;
 
 public class VoidTank extends FluidTank {
 

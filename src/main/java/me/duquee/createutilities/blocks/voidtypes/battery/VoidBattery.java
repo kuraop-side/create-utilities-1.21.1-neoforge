@@ -5,8 +5,8 @@ import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.
 import me.duquee.createutilities.networking.CUPackets;
 import me.duquee.createutilities.networking.packets.VoidBatteryUpdatePacket;
 import net.minecraft.nbt.CompoundTag;
-import net.neoforged.energy.EnergyStorage;
-import net.neoforged.network.PacketDistributor;
+import net.minecraftforge.energy.EnergyStorage;
+import net.minecraftforge.network.PacketDistributor;
 
 public class VoidBattery extends EnergyStorage {
 

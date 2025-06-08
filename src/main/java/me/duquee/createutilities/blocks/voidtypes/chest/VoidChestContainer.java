@@ -13,7 +13,7 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.items.SlotItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
 public class VoidChestContainer extends MenuBase<VoidChestTileEntity> {
 

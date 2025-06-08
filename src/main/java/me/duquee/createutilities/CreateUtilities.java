@@ -13,13 +13,13 @@ import me.duquee.createutilities.mountedstorage.CUMountedStorages;
 import me.duquee.createutilities.networking.CUPackets;
 import me.duquee.createutilities.tabs.CUCreativeTabs;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.loading.FMLEnvironment;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,7 +45,7 @@ public class CreateUtilities {
 	public static void onCtor() {
 
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-		IEventBus gameEventBus = NeoForge.EVENT_BUS;
+		IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
 
 		REGISTRATE.registerEventListeners(modEventBus);
 
@@ -57,9 +57,9 @@ public class CreateUtilities {
 		CUMountedStorages.register();
 
 		modEventBus.addListener(CreateUtilities::init);
-        if (FMLEnvironment.dist.isClient()) {
-            CreateUtilitiesClient.onCtorClient(modEventBus, gameEventBus);
-        }
+		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->
+				CreateUtilitiesClient.onCtorClient(modEventBus, forgeEventBus)
+		);
 
 	}
 

@@ -7,10 +7,10 @@ import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.
 import me.duquee.createutilities.blocks.voidtypes.tank.VoidTank;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.fluids.capability.templates.FluidTank;
-import net.neoforged.fml.loading.FMLEnvironment;
-import net.neoforged.network.NetworkEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.network.NetworkEvent;
 
 public class VoidTankUpdatePacket extends SimplePacketBase {
 
@@ -33,14 +33,11 @@ public class VoidTankUpdatePacket extends SimplePacketBase {
 		buffer.writeNbt(tank.writeToNBT(new CompoundTag()));
 	}
 
-        @Override
-        public boolean handle(NetworkEvent.Context context) {
-                context.enqueueWork(() -> {
-                        if (FMLEnvironment.dist.isClient()) {
-                                CreateUtilitiesClient.VOID_TANKS.storages.put(key, tank);
-                        }
-                });
-                return true;
-        }
+	@Override
+	public boolean handle(NetworkEvent.Context context) {
+		context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->
+				CreateUtilitiesClient.VOID_TANKS.storages.put(key, tank)));
+		return true;
+	}
 
 }

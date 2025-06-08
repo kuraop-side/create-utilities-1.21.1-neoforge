@@ -6,9 +6,9 @@ import me.duquee.createutilities.blocks.voidtypes.battery.VoidBattery;
 import me.duquee.createutilities.blocks.voidtypes.tank.VoidTank;
 import me.duquee.createutilities.ponder.CUPonderPlugin;
 import net.createmod.ponder.foundation.PonderIndex;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fluids.capability.templates.FluidTank;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class CreateUtilitiesClient {
 

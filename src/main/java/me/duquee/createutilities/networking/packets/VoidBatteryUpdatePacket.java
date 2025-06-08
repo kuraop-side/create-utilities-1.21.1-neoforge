@@ -6,9 +6,9 @@ import me.duquee.createutilities.CreateUtilitiesClient;
 import me.duquee.createutilities.blocks.voidtypes.battery.VoidBattery;
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.NetworkKey;
 import net.minecraft.network.FriendlyByteBuf;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.fml.loading.FMLEnvironment;
-import net.neoforged.network.NetworkEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.network.NetworkEvent;
 
 public class VoidBatteryUpdatePacket extends SimplePacketBase {
 
@@ -32,14 +32,12 @@ public class VoidBatteryUpdatePacket extends SimplePacketBase {
 		buffer.writeNbt(battery.serializeNBT());
 	}
 
-        @Override
-        public boolean handle(NetworkEvent.Context context) {
-                context.enqueueWork(() -> {
-                        if (FMLEnvironment.dist.isClient()) {
-                                CreateUtilitiesClient.VOID_BATTERIES.storages.put(key, battery);
-                        }
-                });
-                return true;
-        }
+	@Override
+	public boolean handle(NetworkEvent.Context context) {
+		context.enqueueWork(() -> DistExecutor.runWhenOn(Dist.CLIENT, () -> () ->
+			CreateUtilitiesClient.VOID_BATTERIES.storages.put(key, battery)
+		));
+		return true;
+	}
 
 }
